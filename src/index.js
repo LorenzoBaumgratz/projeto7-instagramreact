@@ -29,105 +29,14 @@ function NavBar() {
     )
 }
 
-function Story1() {
+function Story(props) {
     return (
         <div class="story">
             <div class="imagem">
-                <img src="assets/img/9gag.svg" alt="9gag" />
+                <img src={props.img} alt={props.alt} />
             </div>
             <div class="usuario">
-                9gag
-            </div>
-        </div>
-    )
-}
-
-function Story2() {
-    return (
-        <div class="story">
-            <div class="imagem">
-                <img src="assets/img/meowed.svg" alt="meowed" />
-            </div>
-            <div class="usuario">
-                meowed
-            </div>
-        </div>
-    )
-}
-
-function Story3() {
-    return (
-        <div class="story">
-            <div class="imagem">
-                <img src="assets/img/barked.svg" alt="barked" />
-            </div>
-            <div class="usuario">
-                barked
-            </div>
-        </div>
-    )
-}
-
-function Story4() {
-    return (
-        <div class="story">
-            <div class="imagem">
-                <img src="assets/img/nathanwpylestrangeplanet.svg" alt="nathanwpylestrangeplanet" />
-            </div>
-            <div class="usuario">
-                nathanwpylestrangeplanet
-            </div>
-        </div>
-    )
-}
-
-function Story5() {
-    return (
-        <div class="story">
-            <div class="imagem">
-                <img src="assets/img/wawawicomics.svg" alt="wawawicomics" />
-            </div>
-            <div class="usuario">
-                wawawicomics
-            </div>
-        </div>
-    )
-}
-
-function Story6() {
-    return (
-        <div class="story">
-            <div class="imagem">
-                <img src="assets/img/respondeai.svg" alt="respondeai" />
-            </div>
-            <div class="usuario">
-                respondeai
-            </div>
-        </div>
-    )
-}
-
-function Story7() {
-    return (
-        <div class="story">
-            <div class="imagem">
-                <img src="assets/img/filomoderna.svg" alt="filomoderna" />
-            </div>
-            <div class="usuario">
-                filomoderna
-            </div>
-        </div>
-    )
-}
-
-function Story8() {
-    return (
-        <div class="story">
-            <div class="imagem">
-                <img src="assets/img/memeriagourmet.svg" alt="memeriagourmet" />
-            </div>
-            <div class="usuario">
-                memeriagourmet
+                {props.usuario}
             </div>
         </div>
     )
@@ -135,10 +44,20 @@ function Story8() {
 
 function Stories() {
 
-    const itens = [<Story1 />, <Story2 />, <Story3 />, <Story4 />, <Story5 />, <Story6 />, <Story7 />, <Story8 />];
+    const itens =
+        [
+            <Story img="assets/img/9gag.svg" alt="9gag" usuario="9gag" />,
+            <Story img="assets/img/meowed.svg" alt="meowed" usuario="meowed" />,
+            <Story img="assets/img/barked.svg" alt="barked" usuario="barked" />,
+            <Story img="assets/img/nathanwpylestrangeplanet.svg" alt="nathanwpylestrangeplanet" usuario="nathanwpylestrangeplanet" />,
+            <Story img="assets/img/wawawicomics.svg" alt="wawawicomics" usuario="wawawicomics" />,
+            <Story img="assets/img/respondeai.svg" alt="respondeai" usuario="respondeai" />,
+            <Story img="assets/img/filomoderna.svg" alt="filomoderna" usuario="filomoderna" />,
+            <Story img="assets/img/memeriagourmet.svg" alt="memeriagourmet" usuario="memeriagourmet" />
+        ];
     return (
         <div class="stories">
-            {itens.map((story) => <div>{story}</div>)}
+            {itens.map((story) => story)}
             <div class="setinha">
                 <ion-icon name="chevron-forward-circle"></ion-icon>
             </div>
@@ -146,81 +65,108 @@ function Stories() {
     )
 }
 
-
-
 function Posts() {
+    const itens =
+        [
+            <Post img="assets/img/meowed.svg" usuario="meowed" imgPost="assets/img/gato-telefone.svg" imgPostAlt="gato-telefone" curtida="assets/img/respondeai.svg" curtidaAlt="respondeai" />,
+            <Post img="assets/img/barked.svg" usuario="barked" imgPost="assets/img/dog.svg" imgPostAlt="dog" curtida="assets/img/adorable_animals.svg" curtidaAlt="adorable_animals" />
+        ]
+
     return (
         <div class="posts">
-            <div class="post" data-test="post">
-                <div class="topo">
-                    <div class="usuario">
-                        <img src="assets/img/meowed.svg" alt="meowed" />
-                        meowed
-                    </div>
-                    <div class="acoes">
-                        <ion-icon name="ellipsis-horizontal"></ion-icon>
-                    </div>
+            {itens.map((post) => post)}
+        </div>
+
+    )
+}
+
+function Post(props) {
+    return (
+        <div class="post" data-test="post">
+            <div class="topo">
+                <div class="usuario">
+                    <img src={props.img} alt={props.usuario} />
+                    {props.usuario}
                 </div>
-
-                <div class="conteudo">
-                    <img src="assets/img/gato-telefone.svg" alt="gato-telefone" data-test="post-image" onclick="likePost()"/>
-                </div>
-
-                <div class="fundo">
-                    <div class="acoes">
-                        <div>
-                            <ion-icon name="heart-outline" data-test="like-post" onclick="likePost()"></ion-icon>
-                            <ion-icon name="chatbubble-outline"></ion-icon>
-                            <ion-icon name="paper-plane-outline"></ion-icon>
-                        </div>
-                        <div>
-                            <ion-icon name="bookmark-outline" data-test="save-post" onclick="savePost()"></ion-icon>
-                        </div>
-                    </div>
-
-                    <div class="curtidas">
-                        <img src="assets/img/respondeai.svg" alt="respondeai" />
-                        <div class="texto" data-test="likes-number">
-                            Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
-                        </div>
-                    </div>
+                <div class="acoes">
+                    <ion-icon name="ellipsis-horizontal"></ion-icon>
                 </div>
             </div>
 
-            <div class="post" data-test="post">
-                <div class="topo">
-                    <div class="usuario">
-                        <img src="assets/img/barked.svg" alt="barked" />
-                        barked
+            <div class="conteudo">
+                <img src={props.imgPost} alt={props.imgPostAlt} data-test="post-image" onclick="likePost()" />
+            </div>
+
+            <div class="fundo">
+                <div class="acoes">
+                    <div>
+                        <ion-icon name="heart-outline" data-test="like-post" onclick="likePost()"></ion-icon>
+                        <ion-icon name="chatbubble-outline"></ion-icon>
+                        <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
-                    <div class="acoes">
-                        <ion-icon name="ellipsis-horizontal"></ion-icon>
+                    <div>
+                        <ion-icon name="bookmark-outline" data-test="save-post" onclick="savePost()"></ion-icon>
                     </div>
                 </div>
 
-                <div class="conteudo">
-                    <img src="assets/img/dog.svg" alt="dog" data-test="post-image" onclick="likePost()"/>
-                </div>
-
-                <div class="fundo">
-                    <div class="acoes">
-                        <div>
-                            <ion-icon name="heart-outline" data-test="like-post" onclick="likePost()"></ion-icon>
-                            <ion-icon name="chatbubble-outline"></ion-icon>
-                            <ion-icon name="paper-plane-outline"></ion-icon>
-                        </div>
-                        <div>
-                            <ion-icon name="bookmark-outline" data-test="save-post" onclick="savePost()"></ion-icon>
-                        </div>
-                    </div>
-
-                    <div class="curtidas">
-                        <img src="assets/img/adorable_animals.svg" alt="adorable_animals" />
-                        <div class="texto" data-test="likes-number">
-                            Curtido por <strong>adorable_animals</strong> e <strong>outras 99.159 pessoas</strong>
-                        </div>
+                <div class="curtidas">
+                    <img src={props.curtida} alt={props.curtidaAlt} />
+                    <div class="texto" data-test="likes-number">
+                        Curtido por <strong>{props.curtidaAlt}</strong> e <strong>outras 101.523 pessoas</strong>
                     </div>
                 </div>
+            </div>
+        </div>
+    )
+}
+
+function Sugestao(props) {
+
+    return (
+        <div class="sugestao">
+            <div class="usuario">
+                <img src={props.img} alt={props.usuario} />
+                <div class="texto">
+                    <div class="nome">{props.usuario}</div>
+                    <div class="razao">Segue você</div>
+                </div>
+            </div>
+
+            <div class="seguir">Seguir</div>
+        </div>
+    )
+}
+
+function Sugestoes() {
+    const itens =
+        [
+            <Sugestao img="assets/img/bad.vibes.memes.svg" usuario="bad.vibes.memes" />,
+            <Sugestao img="assets/img/chibirdart.svg" usuario="chibirdart" />,
+            <Sugestao img="assets/img/razoesparaacreditar.svg" usuario="razoesparaacreditar" />,
+            <Sugestao img="assets/img/adorable_animals.svg" usuario="adorable_animals" />,
+            <Sugestao img="assets/img/smallcutecats.svg" usuario="smallcutecats" />
+        ]
+
+    return (
+        <div class="sugestoes">
+            <div class="titulo">
+                Sugestões para você
+                <div>Ver tudo</div>
+            </div>
+            {itens.map((sugestao) => sugestao)}
+        </div>
+    )
+}
+
+function Usuario() {
+    return (
+        <div class="usuario">
+            <img src="assets/img/catanacomics.svg" alt="imagem de perfil" data-test="profile-image" onclick="editarImg()" />
+            <div class="texto">
+                <span>
+                    <strong data-test="name">catanacomics</strong>
+                    <ion-icon name="pencil" data-test="edit-name" onclick="editarNome()"></ion-icon>
+                </span>
             </div>
         </div>
     )
@@ -229,82 +175,9 @@ function Posts() {
 function SideBar() {
     return (
         <div class="sidebar">
-            <div class="usuario">
-                <img src="assets/img/catanacomics.svg" alt="imagem de perfil" data-test="profile-image" onclick="editarImg()"/>
-                <div class="texto">
-                    <span>
-                        <strong data-test="name">catanacomics</strong>
-                        <ion-icon name="pencil" data-test="edit-name" onclick="editarNome()"></ion-icon>
-                    </span>
-                </div>
-            </div>
 
-            <div class="sugestoes">
-                <div class="titulo">
-                    Sugestões para você
-                    <div>Ver tudo</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/bad.vibes.memes.svg" alt="bad.vibes.memes.svg" />
-                        <div class="texto">
-                            <div class="nome">bad.vibes.memes</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/chibirdart.svg" alt="chibirdart" />
-                        <div class="texto">
-                            <div class="nome">chibirdart</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/razoesparaacreditar.svg" alt="razoesparaacreditar" />
-                        <div class="texto">
-                            <div class="nome">razoesparaacreditar</div>
-                            <div class="razao">Novo no Instagram</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/adorable_animals.svg" alt="adorable_animals" />
-                        <div class="texto">
-                            <div class="nome">adorable_animals</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/smallcutecats.svg" alt="smallcutecats" />
-                        <div class="texto">
-                            <div class="nome">smallcutecats</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-            </div>
+            <Usuario/>
+            <Sugestoes />
 
             <div class="links">
                 Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos • Localizações • Contas mais relevantes •
@@ -337,7 +210,6 @@ function Load() {
             <Corpo />
         </div>
     )
-
 }
 
 ReactDOM.render(Load(), document.querySelector("body"));
