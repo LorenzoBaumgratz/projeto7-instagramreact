@@ -37,7 +37,7 @@ function doubleClickLike(){
             </div>
 
             <div className="conteudo">
-                <img src={props.imgPost} alt={props.imgPostAlt} data-test="post-image" onDoubleClick={()=>(like? "":doubleClickLike())} />
+                <img src={props.imgPost} alt={props.imgPostAlt} data-test="post-image" onDoubleClick={()=>(like? "":doubleClickLike())}  />
             </div>
 
             <div className="fundo">
