@@ -33,7 +33,7 @@ function Post(props) {
             </div>
 
             <div class="conteudo">
-                <img src={props.imgPost} alt={props.imgPostAlt} data-test="post-image" onClick={()=>setLike(!like)} />
+                <img src={props.imgPost} alt={props.imgPostAlt} data-test="post-image" onClick={()=>(like? "":setLike(!like))} />
             </div>
 
             <div class="fundo">
