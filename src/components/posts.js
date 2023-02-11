@@ -20,6 +20,10 @@ function Post(props) {
     const [like,setLike]=useState(false);
     const [save,setSave]=useState(false);
 
+function doubleClickLike(){
+    setLike(!like);
+}
+
     return (
         <div className="post" data-test="post">
             <div className="topo">
@@ -33,7 +37,7 @@ function Post(props) {
             </div>
 
             <div className="conteudo">
-                <img src={props.imgPost} alt={props.imgPostAlt} data-test="post-image" onClick={()=>(like? "":setLike(!like))} />
+                <img src={props.imgPost} alt={props.imgPostAlt} data-test="post-image" onDoubleClick={()=>(like? "":doubleClickLike())} />
             </div>
 
             <div className="fundo">
