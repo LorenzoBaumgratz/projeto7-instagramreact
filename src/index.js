@@ -4,7 +4,7 @@ import NavBar from "./components/navbar";
 
 function Load() {
     return (
-        <div class="root">
+        <div className="root">
             <NavBar />
             <Corpo />
         </div>

@@ -12,9 +12,9 @@ export default function Stories() {
             <Story img="assets/img/memeriagourmet.svg" alt="memeriagourmet" usuario="memeriagourmet" />
         ];
     return (
-        <div class="stories">
+        <div className="stories">
             {itens.map((story) => story)}
-            <div class="setinha">
+            <div className="setinha">
                 <ion-icon name="chevron-forward-circle"></ion-icon>
             </div>
         </div>
@@ -23,11 +23,11 @@ export default function Stories() {
 
 function Story(props) {
     return (
-        <div class="story">
-            <div class="imagem">
+        <div className="story">
+            <div className="imagem">
                 <img src={props.img} alt={props.alt} />
             </div>
-            <div class="usuario">
+            <div className="usuario">
                 {props.usuario}
             </div>
         </div>

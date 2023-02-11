@@ -8,7 +8,7 @@ export default function Posts() {
         ]
 
     return (
-        <div class="posts">
+        <div className="posts">
             {itens.map((post) => post)}
         </div>
 
@@ -21,23 +21,23 @@ function Post(props) {
     const [save,setSave]=useState(false);
 
     return (
-        <div class="post" data-test="post">
-            <div class="topo">
-                <div class="usuario">
+        <div className="post" data-test="post">
+            <div className="topo">
+                <div className="usuario">
                     <img src={props.img} alt={props.usuario} />
                     {props.usuario}
                 </div>
-                <div class="acoes">
+                <div className="acoes">
                     <ion-icon name="ellipsis-horizontal"></ion-icon>
                 </div>
             </div>
 
-            <div class="conteudo">
+            <div className="conteudo">
                 <img src={props.imgPost} alt={props.imgPostAlt} data-test="post-image" onClick={()=>(like? "":setLike(!like))} />
             </div>
 
-            <div class="fundo">
-                <div class="acoes">
+            <div className="fundo">
+                <div className="acoes">
                     <div>
                         <ion-icon name={(like? "heart":"heart-outline")} class={(like? "heart-icon":"")} data-test="like-post" onClick={()=>setLike(!like)}></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
@@ -48,9 +48,9 @@ function Post(props) {
                     </div>
                 </div>
 
-                <div class="curtidas">
+                <div className="curtidas">
                     <img src={props.curtida} alt={props.curtidaAlt} />
-                    <div class="texto" data-test="likes-number">
+                    <div className="texto" data-test="likes-number">
                         Curtido por <strong>{props.curtidaAlt}</strong> e <strong>outras {(like? (Number(props.likes)+1):(props.likes))} pessoas</strong>
                     </div>
                 </div>
